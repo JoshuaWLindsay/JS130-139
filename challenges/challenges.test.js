@@ -134,99 +134,226 @@
 //   });
 // });
 
-// Roman Numerals
+// // Roman Numerals
 
-let RomanNumeral = require('./roman-numeral.js');
+// let RomanNumeral = require('./roman-numeral.js');
 
-describe('RomanNumeral', () => {
-  test('1', () => {
-    let number = new RomanNumeral(1);
-    expect(number.toRoman()).toBe('I');
-  });
+// describe('RomanNumeral', () => {
+//   test('1', () => {
+//     let number = new RomanNumeral(1);
+//     expect(number.toRoman()).toBe('I');
+//   });
 
-  test('2', () => {
-    let number = new RomanNumeral(2);
-    expect(number.toRoman()).toBe('II');
-  });
+//   test('2', () => {
+//     let number = new RomanNumeral(2);
+//     expect(number.toRoman()).toBe('II');
+//   });
 
-  test('3', () => {
-    let number = new RomanNumeral(3);
-    expect(number.toRoman()).toBe('III');
-  });
+//   test('3', () => {
+//     let number = new RomanNumeral(3);
+//     expect(number.toRoman()).toBe('III');
+//   });
 
-  test('4', () => {
-    let number = new RomanNumeral(4);
-    expect(number.toRoman()).toBe('IV');
-  });
+//   test('4', () => {
+//     let number = new RomanNumeral(4);
+//     expect(number.toRoman()).toBe('IV');
+//   });
 
-  test('5', () => {
-    let number = new RomanNumeral(5);
-    expect(number.toRoman()).toBe('V');
-  });
+//   test('5', () => {
+//     let number = new RomanNumeral(5);
+//     expect(number.toRoman()).toBe('V');
+//   });
 
-  test('6', () => {
-    let number = new RomanNumeral(6);
-    expect(number.toRoman()).toBe('VI');
-  });
+//   test('6', () => {
+//     let number = new RomanNumeral(6);
+//     expect(number.toRoman()).toBe('VI');
+//   });
 
-  test('9', () => {
-    let number = new RomanNumeral(9);
-    expect(number.toRoman()).toBe('IX');
-  });
+//   test('9', () => {
+//     let number = new RomanNumeral(9);
+//     expect(number.toRoman()).toBe('IX');
+//   });
 
-  test('27', () => {
-    let number = new RomanNumeral(27);
-    expect(number.toRoman()).toBe('XXVII');
-  });
+//   test('27', () => {
+//     let number = new RomanNumeral(27);
+//     expect(number.toRoman()).toBe('XXVII');
+//   });
 
-  test('48', () => {
-    let number = new RomanNumeral(48);
-    expect(number.toRoman()).toBe('XLVIII');
-  });
+//   test('48', () => {
+//     let number = new RomanNumeral(48);
+//     expect(number.toRoman()).toBe('XLVIII');
+//   });
 
-  test('59', () => {
-    let number = new RomanNumeral(59);
-    expect(number.toRoman()).toBe('LIX');
-  });
+//   test('59', () => {
+//     let number = new RomanNumeral(59);
+//     expect(number.toRoman()).toBe('LIX');
+//   });
 
-  test('93', () => {
-    let number = new RomanNumeral(93);
-    expect(number.toRoman()).toBe('XCIII');
-  });
+//   test('93', () => {
+//     let number = new RomanNumeral(93);
+//     expect(number.toRoman()).toBe('XCIII');
+//   });
 
-  test('141', () => {
-    let number = new RomanNumeral(141);
-    expect(number.toRoman()).toBe('CXLI');
-  });
+//   test('141', () => {
+//     let number = new RomanNumeral(141);
+//     expect(number.toRoman()).toBe('CXLI');
+//   });
 
-  test('163', () => {
-    let number = new RomanNumeral(163);
-    expect(number.toRoman()).toBe('CLXIII');
-  });
+//   test('163', () => {
+//     let number = new RomanNumeral(163);
+//     expect(number.toRoman()).toBe('CLXIII');
+//   });
 
-  test('402', () => {
-    let number = new RomanNumeral(402);
-    expect(number.toRoman()).toBe('CDII');
-  });
+//   test('402', () => {
+//     let number = new RomanNumeral(402);
+//     expect(number.toRoman()).toBe('CDII');
+//   });
 
-  test('575', () => {
-    let number = new RomanNumeral(575);
-    expect(number.toRoman()).toBe('DLXXV');
-  });
+//   test('575', () => {
+//     let number = new RomanNumeral(575);
+//     expect(number.toRoman()).toBe('DLXXV');
+//   });
 
-  test('911', () => {
-    let number = new RomanNumeral(911);
-    expect(number.toRoman()).toBe('CMXI');
-  });
+//   test('911', () => {
+//     let number = new RomanNumeral(911);
+//     expect(number.toRoman()).toBe('CMXI');
+//   });
 
-  test('1024', () => {
-    let number = new RomanNumeral(1024);
-    expect(number.toRoman()).toBe('MXXIV');
-  });
+//   test('1024', () => {
+//     let number = new RomanNumeral(1024);
+//     expect(number.toRoman()).toBe('MXXIV');
+//   });
 
-  test('3000', () => {
-    let number = new RomanNumeral(3000);
-    expect(number.toRoman()).toBe('MMM');
-  });
-});
+//   test('3000', () => {
+//     let number = new RomanNumeral(3000);
+//     expect(number.toRoman()).toBe('MMM');
+//   });
+// });
+
+// // Anagrams
+
+// let Anagram = require('./anagram.js');
+
+// describe("Anagram", () => {
+//   test("No matches returns empty array", () => {
+//     let detector = new Anagram('diaper');
+//     expect(detector.match(['hello', 'world', 'zombies', 'pants'])).toEqual([]);
+//   });
+
+//   test("Detect simple anagram", () => {
+//     let detector = new Anagram('ant');
+//     let anagrams = detector.match(['tan', 'stand', 'at']);
+//     expect(anagrams).toEqual(['tan']);
+//   });
+
+//   test("Detect multiple anagrams", () => {
+//     let detector = new Anagram('master');
+//     let anagrams = detector.match(['stream', 'pigeon', 'maters']);
+//     expect(anagrams.sort()).toEqual(['maters', 'stream']);
+//   });
+
+//   test("Do not confuse different duplicates", () => {
+//     let detector = new Anagram('galea');
+//     expect(detector.match(['eagle'])).toEqual([]);
+//   });
+
+//   test("Identical word is not anagram", () => {
+//     let detector = new Anagram('corn');
+//     let anagrams = detector.match(['corn', 'dark', 'Corn', 'rank', 'CORN', 'cron', 'park']);
+//     expect(anagrams).toEqual(['cron']);
+//   });
+
+//   test("Eliminate anagrams with same checksum", () => {
+//     let detector = new Anagram('mass');
+//     expect(detector.match(['last'])).toEqual([]);
+//   });
+
+//   test("Eliminate anagram subsets", () => {
+//     let detector = new Anagram('good');
+//     expect(detector.match(['dog', 'goody'])).toEqual([]);
+//   });
+
+//   test("Detect anagram", () => {
+//     let detector = new Anagram('listen');
+//     let anagrams = detector.match(['enlists', 'google', 'inlets', 'banana']);
+//     expect(anagrams).toEqual(['inlets']);
+//   });
+
+//   test("Multiple anagrams", () => {
+//     let detector = new Anagram('allergy');
+//     let anagrams = detector.match(['gallery', 'ballerina', 'regally',
+//                                    'clergy', 'largely', 'leading']);
+//     expect(anagrams.sort()).toEqual(['gallery', 'largely', 'regally']);
+//   });
+
+//   test("Anagrams are case-insensitive", () => {
+//     let detector = new Anagram('Orchestra');
+//     let anagrams = detector.match(['cashregister', 'Carthorse', 'radishes']);
+//     expect(anagrams).toEqual(['Carthorse'])
+//   });
+// });
+
+// // Scrabble Score
+
+// let Scrabble = require('./scrabble.js');
+
+// describe("Scrabble", () => {
+//   test("empty word scores zero", () => {
+//     expect(new Scrabble('').score()).toBe(0);
+//   });
+
+//   test("whitespace scores zero", () => {
+//     expect(new Scrabble(" \t\n").score()).toBe(0);
+//   });
+
+//   test("nil scores zero", () => {
+//     expect(new Scrabble(null).score()).toBe(0);
+//   });
+
+//   test("scores very short word", () => {
+//     expect(new Scrabble('a').score()).toBe(1);
+//   });
+
+//   test("scores other very short word", () => {
+//     expect(new Scrabble('f').score()).toBe(4);
+//   });
+
+//   test("simple word scores the number of letters", () => {
+//     expect(new Scrabble('street').score()).toBe(6);
+//   });
+
+//   test("complicated words score more", () => {
+//     expect(new Scrabble('quirky').score()).toBe(22);
+//   });
+
+//   test("scores are case-insensitive", () => {
+//     expect(new Scrabble('OXYPHENBUTAZONE').score()).toBe(41);
+//   });
+
+//   test("convenient scoring", () => {
+//     expect(Scrabble.score('alacrity')).toBe(13);
+//   });
+// });
+
+// // Perfect Number
+
+// let PerfectNumber = require('./perfect-number.js');
+
+// describe("PerfectNumber", () => {
+//   test("negative raises error", () => {
+//     expect(() => { PerfectNumber.classify(-1) }).toThrow();
+//   });
+
+//   test("classify deficient", () => {
+//     expect(PerfectNumber.classify(13)).toEqual('deficient');
+//   });
+
+//   test("classify perfect", () => {
+//     expect(PerfectNumber.classify(28)).toEqual('perfect');
+//   });
+
+//   test("classify abundant", () => {
+//     expect(PerfectNumber.classify(12)).toEqual('abundant');
+//   });
+// });
 
