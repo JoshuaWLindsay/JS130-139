@@ -1,3 +1,5 @@
+"use strict";
+
 // My Solution
 
 class RomanNumeral {

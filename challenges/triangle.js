@@ -1,3 +1,5 @@
+"use strict";
+
 class Triangle {
   constructor(side1, side2, side3) {
     this.lengths = [side1, side2, side3].sort((a, b) => a - b);

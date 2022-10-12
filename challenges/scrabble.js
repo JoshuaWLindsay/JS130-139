@@ -1,3 +1,5 @@
+"use strict";
+
 class Scrabble {
   constructor(word) {
     word = word ? word : '';

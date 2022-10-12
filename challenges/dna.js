@@ -1,3 +1,5 @@
+"use strict";
+
 class DNA {
   constructor(sequence) {
     this.strand = sequence;
