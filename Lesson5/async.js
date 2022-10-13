@@ -2,6 +2,9 @@
 //   console.log('!');     // 5
 // }, 3000);
 
+const { start } = require("repl");
+const { clearInterval } = require("timers");
+
 // setTimeout(function() { // 2
 //   console.log('World'); // 4
 // }, 1000);
@@ -110,3 +113,21 @@
 // let counterId = startCounting();
 
 // setTimeout(stopCounting, 10000, counterId);
+
+function stopCounting(id) {
+  clearInterval(id);    
+}
+
+const startCounting = () => {
+  let num = 1;
+  let id = setInterval(() => {
+    console.log(num);
+
+    if (num === 5) stopCounting(id);
+
+    num++;
+  }, 1000);
+}
+
+startCounting();
+

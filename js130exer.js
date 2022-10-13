@@ -84,81 +84,76 @@
 
 // // Anonymizer
 
-// const Account = {
-//   firstName: function(password) {
-//     if (password === this.pass) {
-//       return this.first;
-//     } else {
-//       return `Invalid password`;
-//     }
-//   },
+// const Account = (function() {
+//   const accounts = new WeakMap();
 
-//   lastName: function(password) {
-//     if (password === this.pass) {
-//       return this.last;
-//     } else {
-//       return `Invalid password`;
+//   function anonymize() {
+//     let display = '';
+//     const CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+//     for (let index = 0; index < 16; index++) {
+//       display += CHARS.charAt(Math.floor(Math.random() * 62));
 //     }
-//   },
 
-//   email: function(password) {
-//     if (password === this.pass) {
-//       return this.emailAddress;
-//     } else {
-//       return `Invalid password`;
-//     }
-//   },
+//     return display;
+//   };
 
-//   reanonymize(password) {
-//     function anonymize() {
-//       let display = '';
-//       const CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-//       for (let index = 0; index < 16; index++) {
-//         display += CHARS.charAt(Math.floor(Math.random() * 62));
+//   return {
+//     firstName: function(password) {
+//       if (password === accounts.get(this).pass) {
+//         return accounts.get(this).first;
+//       } else {
+//         return `Invalid password`;
 //       }
+//     },
+  
+//     lastName: function(password) {
+//       if (password === accounts.get(this).pass) {
+//         return accounts.get(this).last;
+//       } else {
+//         return `Invalid password`;
+//       }
+//     },
+  
+//     email: function(password) {
+//       if (password === accounts.get(this).pass) {
+//         return accounts.get(this).email;
+//       } else {
+//         return `Invalid password`;
+//       }
+//     },
+  
+//     reanonymize(password) {
+//       if (password === accounts.get(this).pass) {
+//         this.displayName = anonymize();
+//         return true;
+//       } else {
+//         return `Invalid password`;
+//       };
+//     },
+  
+//     resetPassword(password, newPass) {
+//       if (password === accounts.get(this).pass) {
+//         accounts.get(this).pass = newPass;
+//         return true;
+//       } else {
+//         return `Invalid password`;
+//       }
+//     },
+  
+//     init(email, pass, first, last) {
+//       accounts.set(this, {
+//         email,
+//         first,
+//         last,
+//         pass
+//       });
 
-//       return display;
-//     };
-
-//     if (this.pass === password) {
 //       this.displayName = anonymize();
-//       return true;
-//     } else {
-//       return `Invalid password`;
-//     };
-//   },
-
-//   resetPassword(password, newPass) {
-//     if (this.pass === password) {
-//       this.pass = newPass;
-//       return true;
-//     } else {
-//       return `Invalid password`;
-//     }
-//   },
-
-//   init(email, pass, first, last) {
-//     function anonymize() {
-//       let display = '';
-//       const CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-//       for (let index = 0; index < 16; index++) {
-//         display += CHARS.charAt(Math.floor(Math.random() * 62));
-//       }
-
-//       return display;
-//     };
-
-//     let accounts = [];
-
-//     this.displayName = anonymize();
-//     this.emailAddress = email;
-//     this.first = first;
-//     this.last = last;
-//     this.pass = pass;
-
-//     return this;
+  
+//       return this;
+//     }  
 //   }
-// }
+// })();
 
 // let fooBar = Object.create(Account).init('foo@bar.com', '123456', 'foo', 'bar');
 // console.log(fooBar);
@@ -169,10 +164,15 @@
 // console.log(fooBar.displayName);                   // logs 16 character sequence
 // console.log(fooBar.resetPassword('123', 'abc'))    // logs 'Invalid Password';
 // console.log(fooBar.resetPassword('123456', 'abc')) // logs true
-
+// console.log(fooBar.firstName('abc'));              // logs 'foo'
 // let displayName = fooBar.displayName;
 // console.log(fooBar.reanonymize('abc'));            // logs true
 // console.log(displayName === fooBar.displayName);   // logs false
+// let quxBar = Object.create(Account).init('qux@bar.com', '123456', 'qux', 'bar');
+// console.log(quxBar);
+// console.log(quxBar.firstName);                     // returns the firstName function
+// console.log(quxBar.email);                         // returns the email function
+// console.log(quxBar.firstName('123456'));           // logs 'qux'
 
 // // Mini Inventory Management System
 
