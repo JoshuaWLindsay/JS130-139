@@ -82,78 +82,78 @@
 
 // baz.qux();          // logs 'changed'
 
-// // Anonymizer
+// Anonymizer
 
-// const Account = (function() {
-//   const accounts = new WeakMap();
+const Account = (function() {
+  const accounts = new WeakMap();
 
-//   function anonymize() {
-//     let display = '';
-//     const CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-//     for (let index = 0; index < 16; index++) {
-//       display += CHARS.charAt(Math.floor(Math.random() * 62));
-//     }
+  function anonymize() {
+    let display = '';
+    const CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    for (let index = 0; index < 16; index++) {
+      display += CHARS.charAt(Math.floor(Math.random() * 62));
+    }
 
-//     return display;
-//   };
+    return display;
+  };
 
-//   return {
-//     firstName: function(password) {
-//       if (password === accounts.get(this).pass) {
-//         return accounts.get(this).first;
-//       } else {
-//         return `Invalid password`;
-//       }
-//     },
+  return {
+    firstName: function(password) {
+      if (password === accounts.get(this).pass) {
+        return accounts.get(this).first;
+      } else {
+        return `Invalid password`;
+      }
+    },
   
-//     lastName: function(password) {
-//       if (password === accounts.get(this).pass) {
-//         return accounts.get(this).last;
-//       } else {
-//         return `Invalid password`;
-//       }
-//     },
+    lastName: function(password) {
+      if (password === accounts.get(this).pass) {
+        return accounts.get(this).last;
+      } else {
+        return `Invalid password`;
+      }
+    },
   
-//     email: function(password) {
-//       if (password === accounts.get(this).pass) {
-//         return accounts.get(this).email;
-//       } else {
-//         return `Invalid password`;
-//       }
-//     },
+    email: function(password) {
+      if (password === accounts.get(this).pass) {
+        return accounts.get(this).email;
+      } else {
+        return `Invalid password`;
+      }
+    },
   
-//     reanonymize(password) {
-//       if (password === accounts.get(this).pass) {
-//         this.displayName = anonymize();
-//         return true;
-//       } else {
-//         return `Invalid password`;
-//       };
-//     },
+    reanonymize(password) {
+      if (password === accounts.get(this).pass) {
+        this.displayName = anonymize();
+        return true;
+      } else {
+        return `Invalid password`;
+      };
+    },
   
-//     resetPassword(password, newPass) {
-//       if (password === accounts.get(this).pass) {
-//         accounts.get(this).pass = newPass;
-//         return true;
-//       } else {
-//         return `Invalid password`;
-//       }
-//     },
+    resetPassword(password, newPass) {
+      if (password === accounts.get(this).pass) {
+        accounts.get(this).pass = newPass;
+        return true;
+      } else {
+        return `Invalid password`;
+      }
+    },
   
-//     init(email, pass, first, last) {
-//       accounts.set(this, {
-//         email,
-//         first,
-//         last,
-//         pass
-//       });
+    init(email, pass, first, last) {
+      accounts.set(this, {
+        email,
+        first,
+        last,
+        pass
+      });
 
-//       this.displayName = anonymize();
+      this.displayName = anonymize();
   
-//       return this;
-//     }  
-//   }
-// })();
+      return this;
+    }  
+  }
+})();
 
 // let fooBar = Object.create(Account).init('foo@bar.com', '123456', 'foo', 'bar');
 // console.log(fooBar);
